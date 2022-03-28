@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="col-md-10">         
+<table id="projects-table" class="table table-sm table-responsive-sm table-hover text-nowrap table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr style="text-align: center;">
+<tr>
+<th>Titre</th>
+<th>Description</th>
+<th>Date de debut</th>
+<th>Date de fin</th>
+<th>Status</th>
+<th>Actions</th>
+
+
+</tr>
+</thead>
+<tbody id="get_table_body">
+{% for project in projects %}
+<tr>
+<td>{{project.Title}}</td>
+<td>{{project.Description}}</td>
+<td>{{project.StartDate}}</td>
+<td>{{project.EndDate}}</td>
+<td>{{project.Status}}</td>
+<td>
+<button type="button" class="delete-project btn btn-sm btn-danger" data-form-url="{% url 'delete_project' project.pk %}">
+    <span class="fa fa-trash"></span>
+  </button>
+ 
+<button id="update-project" type="button" class="update-project btn btn-sm btn-primary" data-form-url="{% url 'update_project' project.pk %}">
+    <span class="fa fa-edit"></span>
+    </button>
+</td>      
+</tr>
+{% endfor %}
+
+
+</table>
+
