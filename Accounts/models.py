@@ -10,7 +10,7 @@ class User(AbstractUser):
 
  )  
     Type = models.CharField(max_length=100,choices=User_type )
-    permissions = (
-                       ("view_vote_office", "can view vote office"),
-                       ("find_vote", "can find vote"),
-                      )
+    def get_delete_user_url(self):
+        return reverse('delete_user', kwargs={'pk': self.id})
+    def get_edit_user_url(self):
+        return reverse('edit_user', kwargs={'pk': self.id})

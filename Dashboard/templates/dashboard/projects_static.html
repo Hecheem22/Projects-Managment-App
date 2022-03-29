@@ -1,50 +1,61 @@
-<div class="row mt-5 ml-6" >
-    <div class="col">
-        <div class="col-md">
-            <div class="card bg-success text-center text-white  mb-3" id="projects-in-progress">
-                <div class="card-header">
-                    <h5 class="card-title"></h5>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{En_cours}}</h3>
-                </div>
-            </div>
-        </div>
+<style>
+    #total-projects{
+		background-color: #2b1ac4;
+	}
+
+
+	#incomplete-projects{
+		background-color: #2b56d6;
+	}
+
+	#completed-projects{
+		background-color: #2b56d6;
+	}
+
+
+</style>    
+<div class="col">
+    <div class="card border-dark" >
+        <h3 class="card-header"> Projects Static</h3>
+  
     </div>
-    <div class="col">
-        <div class="col-md">
-            <div class="card bg-primary text-center text-white  mb-3" id="total-projets">
-                <div class="card-header">
-                    <h5 class="card-title">Total Projects</h5>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{total_projects}}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col">
-        <div class="col-md">
-            <div class="card bg-danger text-center text-white  mb-3" id="completed-projects">
-                <div class="card-header">
-                    <h5 class="card-title"></h5>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{Termine}}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  </div>   
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-projects">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Projects</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_projects}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="incomplete-projects">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Incomplete Projects</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{incomplete}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="completed-projects">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Completed Projects</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{completed}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>

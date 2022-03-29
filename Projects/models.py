@@ -15,7 +15,7 @@ class Project(models.Model):
   STATUS = (
 		
 			('incomplete', 'incomplete'),
-			('complete', 'complete'),
+			('completed', 'completed'),
 			)
   
   Title = models.CharField(max_length=255,verbose_name='Titre du projet')

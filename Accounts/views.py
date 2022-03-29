@@ -8,6 +8,8 @@ from Accounts.forms import AddUserForm
 from .tables import UserTable
 from django_tables2 import SingleTableView
 from bootstrap_modal_forms.generic import BSModalCreateView
+from django.views.generic import DeleteView , UpdateView
+
 
 
 def index(request):
@@ -50,6 +52,24 @@ class UserCreateView(BSModalCreateView):
     success_message = 'Success: user was created.'
     success_url = reverse_lazy('userslist')
 
+class DeleteUserView(DeleteView):
+    model = User
+    success_url = reverse_lazy('userslist')
+    def get(self, *args, **kwargs):
+         return self.post(*args, **kwargs)
+
+
+class EditUserView(UpdateView):
+
+    model = User
+    fields = ["first_name", "last_name" , "email"   ]
+    template_name = 'accounts/edit_user.html'
+    context_object_name = 'projet'
+
+    def form_valid(self, form):
+        projet = form.save(commit=False)
+        projet.save()
+        return redirect('ProjectsList')
 
 class UserListView(SingleTableView):
     model = User

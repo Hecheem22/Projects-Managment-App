@@ -29,8 +29,8 @@ class AddProjectForm(BSModalModelForm):
         ))
 
     ProjectManager = forms.Select()   
- 
+    Status = forms.Select()
 
     class Meta:
         model = Project
-        fields = ("Title", "Description", "StartDate", "EndDate" , "ProjectManager")
+        fields = ("Title", "Description", "StartDate", "EndDate" , "ProjectManager" , "Status")

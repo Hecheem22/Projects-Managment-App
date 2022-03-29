@@ -8,7 +8,6 @@ from .utils import Calendar
 from Taches.models import Tache
 from Projects.forms import AddProjectForm
 from django.urls import reverse_lazy
-from django.core.paginator import Paginator , EmptyPage, PageNotAnInteger
 from bootstrap_modal_forms.generic import (BSModalUpdateView,BSModalDeleteView
 )
 
@@ -52,31 +51,18 @@ def next_month(d):
 
 
 def project_dashboard(request):
-	projects = Project.objects.all()
+	projects = Project.objects.filter(ProjectManager=request.user)
 	total_projects = projects.count()
-	Termine = projects.filter(Status='Terminé').count()
-	En_cours = projects.filter(Status='En cours').count()
+	completed = projects.filter(Status='completed').count()
+	incomplete = projects.filter(Status='incomplete').count()
    
 
 	context = {'projects':projects, 
-    'total_projects':total_projects,'Terminé':Termine,
-	'En cours':En_cours }
+    'total_projects':total_projects,'completed':completed,
+	'incomplete':incomplete }
 
 	return render(request, 'dashboard/dashboard.html', context)
 
-
-def tache_dashboard(request):
-	taches = Tache.objects.all()
-	total_taches = taches.count()
-	Complete = taches.filter(Status='Complete').count()
-	Incomplete = taches.filter(Status='Incomplete').count()
-    
-
-	context = {'taches':taches, 
-    'total_taches':total_taches,'Complete':Complete,
-	'Incomplete':Incomplete }
-
-	return render(request, 'dashboard/taches_status.html', context)
 
 
 class ProjectUpdateView(BSModalUpdateView):

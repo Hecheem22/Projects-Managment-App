@@ -68,54 +68,54 @@
       </div>
     </div>
   
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      
-        <li class="nav-item menu-open">
-          <a href="/dashboard" class="nav-link active">
-          <i class="nav-icon bi bi-speedometer"></i>
-          <p>
-          Dashboard
-        
-          </p>
-          </a>
-          <li class="nav-item menu-open">
-            <a href="/calendar" class="nav-link active">
-            <i class="nav-icon bi bi-calendar-date"></i>
-            <p>
-            Calendar
-          
-            </p>
-            </a>
-        
-            <li class="nav-item menu-open">
-              <a href="/projects-list" class="nav-link active">
-              <i class="nav-icon bi bi-briefcase"></i>
-              <p>
-              Projects
-            
-              </p>
-              </a>
-            
-              <li class="nav-item menu-open">
-                <a href="/" class="nav-link active">
-                <i class="nav-icon bi bi-list-task"></i>
-                <p>
-                Taches
-           
-                </p>
-                </a>
-                <li class="nav-item menu-open">
-                  <a href="/users-list" class="nav-link active">
-                  <i class="nav-icon bi bi-people"></i>
-                  <p>
-                  Users group
-           
-                  </p>
-                  </a>
-          
-    </nav>
-    
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+<li class="nav-item menu-open">
+<a href="/" class="nav-link active">
+<i class="nav-icon bi bi-speedometer"></i>
+<p>
+Dashboard
+
+</p>
+</a>
+<li class="nav-item menu-open">
+<a href="/calendar" class="nav-link active">
+<i class="nav-icon bi bi-calendar-date"></i>
+<p>
+Calendar
+
+</p>
+</a>
+
+<li class="nav-item menu-open">
+  <a href="/projects-list" class="nav-link active">
+  <i class="nav-icon bi bi-briefcase"></i>
+  <p>
+  Projects
+
+  </p>
+  </a>
+
+  <li class="nav-item menu-open">
+    <a href="/taches-list" class="nav-link active">
+    <i class="nav-icon bi bi-list-task"></i>
+    <p>
+    Taches
+
+    </p>
+    </a>
+    <li class="nav-item menu-open">
+      <a href="/users-list" class="nav-link active">
+      <i class="nav-icon bi bi-people"></i>
+      <p>
+      Users group
+
+      </p>
+      </a>
+
+</nav>
+
   </div>
   
 
@@ -150,7 +150,6 @@
 <script src="{% static 'assets/js/bootstrap.js' %}"></script>
 <script src="{% static 'assets/js/jquery.js' %}"></script>
 <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
-
 <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
 
 <script type="text/javascript">
@@ -159,6 +158,13 @@ $(document).ready(function() {
     $("#create-project").modalForm({
         formURL: "{% url 'create_project' %}"
     });
+
+});
+$(document).ready(function() {
+
+  $("#create-tache").modalForm({
+      formURL: "{% url 'create_tache' %}"
+  });
 
 });
 
@@ -171,14 +177,7 @@ $(document).ready(function() {
 
 
 });
-$(document).ready(function() {
 
-$("#create-tache").modalForm({
-    formURL: "{% url 'create_tache' %}"
-});
-
-
-});
 function deleteProjectModalForm() {
 $(".delete-project").each(function () {
   $(this).modalForm({formURL: $(this).data("form-url"), isDeleteForm: true});

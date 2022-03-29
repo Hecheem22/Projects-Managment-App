@@ -2,12 +2,19 @@
 {% load static %}
 {% block content %}
 <title> Liste des taches</title>
-<div class="col">
-  <div class="card border-dark" >
-      <h3 class="card-header"> Taches of all projects</h3>
-
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
   </div>
+  <div class="col">
+    <div class="card border-dark" >
+        <h3 class="card-header"> Les taches du projet</h3>
+
+    </div>
 </div>      
+<button id="create-tache" class="btn btn-primary" type="button" name="button"> Create New Tache</button> 
+ 
 <table class="table">
   <tr>
     <th>Name</th>

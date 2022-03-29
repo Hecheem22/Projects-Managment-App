@@ -18,10 +18,13 @@ class ProjectCreateView(BSModalCreateView):
 class ProjectDetailView(View):
 
     def get(self, request, pk):
+        project=Project.objects.get(id=pk)
+        context_data = {"taches":Tache.objects.filter(Project=project)}
 
-        context_data = {"tache":Tache.objects.get(id=pk)}
+        return render(request,'projects/project_details.html',context_data)
 
-        return render(request,'taches/taches_list.html',context_data)
+
+
 
 class SampleTable(View):
  def get(self,request):
