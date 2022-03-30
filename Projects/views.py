@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView 
 from Taches.models import Tache
 
+
 class ProjectCreateView(BSModalCreateView):
     template_name = 'projects/add_project.html'
     form_class = AddProjectForm
@@ -30,6 +31,7 @@ class SampleTable(View):
  def get(self,request):
         queryset = Project.objects.filter(ProjectManager=request.user)
         project_table = ProjectTable(queryset)
-        context = {'view_project':project_table}
+       
+        context = {'view_project':project_table }
         return render(request, 'projects/projects_list.html', context)
         

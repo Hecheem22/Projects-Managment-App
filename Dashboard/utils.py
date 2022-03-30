@@ -16,8 +16,8 @@ class Calendar(HTMLCalendar):
 		projects_per_day = projects.filter(StartDate__day=day)
 		d = ''
 		for project in projects_per_day:
-			d += f'<li> {project.Title} </li>'
-			d += f'<li> {project.Description} </li>'
+			d += f'<li> {project.Title}-{project.Description} </li>'
+			
 
 		if day != 0:
 			return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"

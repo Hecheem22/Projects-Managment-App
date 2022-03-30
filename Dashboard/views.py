@@ -10,7 +10,7 @@ from Projects.forms import AddProjectForm
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import (BSModalUpdateView,BSModalDeleteView
 )
-
+from Projects.filters import ProjectFilter
 
 
 
@@ -51,17 +51,19 @@ def next_month(d):
 
 
 def project_dashboard(request):
-	projects = Project.objects.filter(ProjectManager=request.user)
-	total_projects = projects.count()
-	completed = projects.filter(Status='completed').count()
-	incomplete = projects.filter(Status='incomplete').count()
-   
+    projects = Project.objects.filter(ProjectManager=request.user)
+    total_projects = projects.count()
+    myFilter = ProjectFilter(request.GET , queryset=projects)
+    projects = myFilter.qs 
+    completed = projects.filter(Status='completed').count()
+    incomplete = projects.filter(Status='incomplete').count()
 
-	context = {'projects':projects, 
+
+    context = {'projects':projects, 
     'total_projects':total_projects,'completed':completed,
-	'incomplete':incomplete }
+    'incomplete':incomplete , 'myFilter':myFilter }
 
-	return render(request, 'dashboard/dashboard.html', context)
+    return render(request, 'dashboard/dashboard.html', context)
 
 
 

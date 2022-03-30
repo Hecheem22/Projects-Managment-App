@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'Taches',
     'Dashboard',
     'django_tables2',
+    'django_filters',
     'bootstrap_modal_forms',
-     'widget_tweaks',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
