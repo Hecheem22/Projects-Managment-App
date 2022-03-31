@@ -1,7 +1,6 @@
 from django.db import models
 from Projects.models import Project
-
-
+from Accounts.models import User
 
 class Tache(models.Model):
    STATUS = (
@@ -18,7 +17,10 @@ class Tache(models.Model):
 
 
 
-   
+class Affectation(models.Model):
+   Tache=models.ForeignKey( Tache , null=True, on_delete=models.SET_NULL  )
+   User = models.ForeignKey( User , null=True, on_delete=models.SET_NULL  )
+
 
    
   
