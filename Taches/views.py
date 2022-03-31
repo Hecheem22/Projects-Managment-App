@@ -1,9 +1,7 @@
-from django.shortcuts import redirect , render
-from Taches.models import Tache
-from Taches.forms import AddTacheForm
+from django.shortcuts import  render
+from Taches.models import Affectation, Tache
+from Taches.forms import AddTacheForm, UserTachesForm
 from django.urls import reverse_lazy
-from django.views.generic.edit import DeleteView
-from django.views.generic.edit import UpdateView
 from bootstrap_modal_forms.generic import BSModalCreateView 
 
 def taches(request):
@@ -13,9 +11,16 @@ def taches(request):
 
 
 
+def UsersTaches(request):
+	Users_Taches = Affectation.objects.all()
 
+	return render(request, 'taches/Users_Taches.html', {'Users_taches':Users_Taches})
 
-
+class UserTacheCreateView(BSModalCreateView):
+    template_name = 'taches/add_user_tache.html'
+    form_class = UserTachesForm
+    success_message = 'Success: new task was created.'
+    success_url = reverse_lazy('UsersTaches')
 
 class TacheCreateView(BSModalCreateView):
     template_name = 'taches/add_tache.html'

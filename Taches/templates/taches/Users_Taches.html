@@ -1,0 +1,31 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<title> Liste des taches</title> 
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  <button id="add-user-tache" class="btn btn-primary" type="button" name="button"> Add</button> 
+<br>
+<table class="table">
+  <tr>
+    <th>User</th>
+    <th>Tache</th>
+    
+  </tr>
+<tbody>
+  {% for i in affectation %}
+<tr>
+  <td>{{affectation.User}}</td>
+  <td>{{affectation.Tache}}</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

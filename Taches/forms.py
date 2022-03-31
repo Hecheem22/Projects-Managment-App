@@ -1,4 +1,5 @@
-from Taches.models import Tache
+from attr import fields
+from Taches.models import Affectation, Tache
 from django import forms 
 from bootstrap_modal_forms.forms import BSModalModelForm
 
@@ -10,6 +11,16 @@ class AddTacheForm(BSModalModelForm):
             'Description': forms.Textarea(attrs={ 'class': 'form-control' }),
             'StartDate': forms.DateInput(attrs={ 'class': 'form-control' , 'type' : 'date' }),
             'EndDate': forms.DateInput(attrs={ 'class': 'form-control' , 'type' : 'date' }),
-             'Status': forms.Select(),
-            
-             }
+            'Status': forms.Select(),}
+
+
+
+
+class UserTachesForm(BSModalModelForm):
+    User = forms.Select()
+    Tache = forms.Select()
+    class Meta:
+        model= Affectation
+        fields=['User' , 'Tache']
+        
+                         

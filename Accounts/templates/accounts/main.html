@@ -97,7 +97,7 @@ Calendar
     <a href="/taches-list" class="nav-link active">
     <i class="nav-icon bi bi-list-task"></i>
     <p>
-    Taches
+    Tasks
 
     </p>
     </a>
@@ -173,7 +173,14 @@ $(document).ready(function() {
 
 
 });
+$(document).ready(function() {
 
+  $("#add-user-tache").modalForm({
+      formURL: "{% url 'add_tache' %}"
+  });
+
+
+});
 function deleteProjectModalForm() {
 $(".delete-project").each(function () {
   $(this).modalForm({formURL: $(this).data("form-url"), isDeleteForm: true});
