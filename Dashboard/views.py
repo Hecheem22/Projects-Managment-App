@@ -56,12 +56,12 @@ def project_dashboard(request):
     myFilter = ProjectFilter(request.GET , queryset=projects)
     projects = myFilter.qs 
     completed = projects.filter(Status='completed').count()
-    incomplete = projects.filter(Status='incomplete').count()
+    uncompleted = projects.filter(Status='uncompleted').count()
 
 
     context = {'projects':projects, 
     'total_projects':total_projects,'completed':completed,
-    'incomplete':incomplete , 'myFilter':myFilter }
+    'uncompleted':uncompleted , 'myFilter':myFilter }
 
     return render(request, 'dashboard/dashboard.html', context)
 
@@ -87,5 +87,8 @@ class ProjectDeleteView(BSModalDeleteView):
 
 
 
+def Taches(request):
+	taches = Tache.objects.all()
 
+	return render(request, 'dashboard/taches_table.html', {'taches':taches})
 

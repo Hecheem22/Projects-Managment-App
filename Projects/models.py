@@ -14,7 +14,7 @@ class Project(models.Model):
 
   STATUS = (
 		
-			('incomplete', 'incomplete'),
+			('uncompleted', 'uncompleted'),
 			('completed', 'completed'),
 			)
   

@@ -41,10 +41,13 @@ INSTALLED_APPS = [
     'Projects',
     'Taches',
     'Dashboard',
+    'Notifications',
+    'Affectations',
     'django_tables2',
     'django_filters',
     'bootstrap_modal_forms',
     'widget_tweaks',
+    
 ]
 
 MIDDLEWARE = [
