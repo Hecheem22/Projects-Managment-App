@@ -3,6 +3,8 @@ from Taches.models import Affectation, Tache
 from Taches.forms import AddTacheForm, UserTachesForm
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView 
+from django.views.generic.base import View
+from Taches.tables import TachesTable
 
 def taches(request):
 	taches = Tache.objects.all()
@@ -11,10 +13,15 @@ def taches(request):
 
 
 
-def UsersTaches(request):
-	Users_Taches = Affectation.objects.all()
+class UsersTachesTable(View):
+ def get(self,request):
+        queryset = Affectation.objects.all()
+        Taches_Table = TachesTable(queryset)
+       
+        context = {'view_taches':Taches_Table }
+        return render(request, 'taches/users_taches.html', context)
+        
 
-	return render(request, 'taches/Users_Taches.html', {'Users_taches':Users_Taches})
 
 class UserTacheCreateView(BSModalCreateView):
     template_name = 'taches/add_user_tache.html'

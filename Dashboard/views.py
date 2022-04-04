@@ -69,7 +69,7 @@ def project_dashboard(request):
 
 class ProjectUpdateView(BSModalUpdateView):
     model = Project
-    template_name = 'projects/update_proj.html'
+    template_name = 'projects/update_project.html'
     form_class = AddProjectForm
     success_message = 'Success: Project was updated.'
     success_url = reverse_lazy('dashboard')

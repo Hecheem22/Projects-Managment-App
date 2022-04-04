@@ -18,12 +18,12 @@ class Project(models.Model):
 			('completed', 'completed'),
 			)
   
-  Title = models.CharField(max_length=255,verbose_name='Titre du projet')
-  Description = models.TextField( max_length=800 , verbose_name='Description du projet')
-  StartDate  = models.DateField(  max_length=100, auto_now=False, auto_now_add=False , verbose_name='Date de début') 
-  EndDate = models.DateField( max_length=100, auto_now=False, auto_now_add=False, verbose_name='Date de fin')
-  ProjectManager = models.ForeignKey(User  , null=True, on_delete=models.SET_NULL  )
-  Status = models.CharField(max_length=200, null=True, choices=STATUS)
+  Title = models.CharField(max_length=255)
+  Description = models.TextField( max_length=800 )
+  StartDate  = models.DateField(  max_length=100, auto_now=False, auto_now_add=False , verbose_name='Start Date') 
+  EndDate = models.DateField( max_length=100, auto_now=False, auto_now_add=False, verbose_name='End Date')
+  ProjectManager = models.ForeignKey(User  , null=True, on_delete=models.SET_NULL , verbose_name='Project Manager' ,default='user'  )
+  Status = models.CharField(max_length=200, null=True, choices=STATUS , default='uncompleted')
 
 
   def get_absolute_url(self):

@@ -62,14 +62,14 @@ class DeleteUserView(DeleteView):
 class EditUserView(UpdateView):
 
     model = User
-    fields = ["first_name", "last_name" , "email"   ]
+    fields = ["first_name", "last_name" , "email" , 'Type' ]
     template_name = 'accounts/edit_user.html'
     context_object_name = 'projet'
 
     def form_valid(self, form):
         projet = form.save(commit=False)
         projet.save()
-        return redirect('ProjectsList')
+        return redirect('userslist')
 
 class UserListView(SingleTableView):
     model = User
