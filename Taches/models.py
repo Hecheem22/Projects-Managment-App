@@ -18,8 +18,8 @@ class Tache(models.Model):
 
 
 class Affectation(models.Model):
-   Tache =models.ForeignKey( Tache , null=True, on_delete=models.SET_NULL  )
-   User = models.ForeignKey( User , null=True, on_delete=models.SET_NULL   )
+   Tache =models.ForeignKey( Tache , null=True, on_delete=models.SET_NULL)
+   User = models.ForeignKey( User , null=True, on_delete=models.SET_NULL)
 
 
    
