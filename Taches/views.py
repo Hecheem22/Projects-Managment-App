@@ -1,4 +1,6 @@
+from multiprocessing import context
 from django.shortcuts import  render
+from Accounts.models import User
 from Taches.models import Affectation, Tache
 from Taches.forms import AddTacheForm, UserTachesForm
 from django.urls import reverse_lazy
@@ -28,12 +30,13 @@ class UserTacheCreateView(BSModalCreateView):
     form_class = UserTachesForm
     success_message = 'Success: new task was created.'
     success_url = reverse_lazy('UsersTaches')
+   
 
 class TacheCreateView(BSModalCreateView):
     template_name = 'taches/add_tache.html'
     form_class = AddTacheForm
     success_message = 'Success: tache was created.'
-    success_url = reverse_lazy('dashboard')
+    success_url = reverse_lazy('UsersTaches')
     
 
 

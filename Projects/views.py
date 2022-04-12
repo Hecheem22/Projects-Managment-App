@@ -9,6 +9,7 @@ from bootstrap_modal_forms.generic import BSModalCreateView
 from Taches.models import Tache
 
 
+
 class ProjectCreateView(BSModalCreateView):
     template_name = 'projects/add_project.html'
     form_class = AddProjectForm

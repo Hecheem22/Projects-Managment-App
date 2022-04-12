@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect 
 from django.contrib.auth import authenticate, login , logout
-from .forms import LoginForm
 from django.urls import reverse_lazy
 from .models import *
 from Accounts.forms import AddUserForm
@@ -9,15 +8,10 @@ from .tables import UserTable
 from django_tables2 import SingleTableView
 from bootstrap_modal_forms.generic import BSModalCreateView
 from django.views.generic import DeleteView , UpdateView
-
-
+from .forms import LoginForm
 
 def index(request):
-    return render(request, 'accounts/main.html')
-
-
-
-
+    return render(request, 'accounts/dashboard.html')
 
 
 def loginPage(request):
@@ -39,6 +33,9 @@ def loginPage(request):
 						return redirect('main')
 					
 			return render(request, "accounts/login.html", {"form": form})
+
+
+
 
 
 def logoutUser(request):

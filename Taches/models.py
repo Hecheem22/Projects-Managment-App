@@ -14,8 +14,8 @@ class Tache(models.Model):
    EndDate = models.DateField( max_length=100, auto_now=False, auto_now_add=False, verbose_name='Date de fin')
    Status = models.CharField(max_length=200, null=True, choices=STATUS)
    Project = models.ForeignKey( Project , null=True, on_delete=models.SET_NULL  )
-
-
+   def __str__(self):
+       return self.Name
 
 class Affectation(models.Model):
    Tache =models.ForeignKey( Tache , null=True, on_delete=models.SET_NULL)

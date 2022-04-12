@@ -4,8 +4,6 @@ from bootstrap_modal_forms.forms import BSModalModelForm
 
 
 
-
-
 class LoginForm(forms.ModelForm):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -27,11 +25,6 @@ class LoginForm(forms.ModelForm):
 
 
 class AddUserForm(BSModalModelForm):
-    
-
-  
-      
-
     class Meta:
         model = User
         fields = ['first_name' , 'last_name' , 'email' , 'Type']
