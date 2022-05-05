@@ -25,19 +25,11 @@
    </ul>
    <ul class="navbar-nav ml-auto">
    
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
+     
       
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        
-            <li><a class="dropdown-item" href="/profile"> Profile</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li><a class="btn"  href="/logout">Logout <i class="bi bi-box-arrow-in-right"></i></a></li>
         </ul>
     </li>
   
@@ -45,42 +37,35 @@
 </nav>
 
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-  <a href="/" class="brand-link">
-    
+<aside class="main-sidebar sidebar-dark-primary elevation">
+<a href="#" class="brand-link">
     <span class="brand-text font-weight-light"> Project Managment</span>
   </a>
 <div class="sidebar">
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      
       <div class="info">
         <a href="" class="d-block">
           Welcome {{ request.user.username }}  </span>
         </a>
-        <div>
-        <span ><a  class="hello-msg" href="{% url 'logout' %}"> <i class="fa fa-fw fa-sign-out"> </i>  Logout</a></span>
         </div>
-      </div>
     </div>
   
 <nav class="mt-2">
-<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" >
 
 <li class="nav-item menu-open">
 <a href="/" class="nav-link active">
 <i class="nav-icon bi bi-speedometer"></i>
 <p>
 Dashboard
-
 </p>
 </a>
+
 <li class="nav-item menu-open">
 <a href="/calendar" class="nav-link active">
 <i class="nav-icon bi bi-calendar-date"></i>
 <p>
 Calendar
-
 </p>
 </a>
 
@@ -89,7 +74,6 @@ Calendar
   <i class="nav-icon bi bi-briefcase"></i>
   <p>
   Projects
-
   </p>
   </a>
 
@@ -111,8 +95,7 @@ Calendar
       </a>
 
 </nav>
-
-  </div>
+</div>
   
 
 </aside>
@@ -196,7 +179,7 @@ function editProjectModalForm() {
   editProjectModalForm();
   
 
-
+ 
 
 
 </script>

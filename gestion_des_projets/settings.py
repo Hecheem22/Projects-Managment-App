@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Projects',
     'Taches',
     'Dashboard',
+    'notifications',
     'django_tables2',
     'django_filters',
     'bootstrap_modal_forms',

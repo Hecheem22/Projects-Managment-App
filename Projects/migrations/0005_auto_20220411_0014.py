@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='project',
             name='ProjectManager',
-            field=models.ForeignKey(default='user', null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Project Manager'),
+            field=models.ForeignKey(default='1', null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Project Manager'),
         ),
         migrations.AlterField(
             model_name='project',

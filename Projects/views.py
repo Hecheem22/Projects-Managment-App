@@ -36,3 +36,5 @@ class SampleTable(View):
         context = {'view_project':project_table }
         return render(request, 'projects/projects_list.html', context)
         
+
+        

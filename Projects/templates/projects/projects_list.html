@@ -2,6 +2,21 @@
 {% load static %}
 {% block content %}
 {% load render_table from django_tables2 %}
+<style>
+  .modal-content {
+   
+    margin: auto !important;
+    width: 600px !important;
+    max-width : 600px !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid black !important;
+    
+  }
+   
+  }
+  
+    
+</style>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   
         <div class="modal-dialog" role="document">
@@ -19,7 +34,7 @@
 	
 </div>
 {% render_table view_project %}
-<a href="/calendar" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Calendar</a>
+<a href="/calendar" class="btn btn-primary btn active" role="button" aria-pressed="true">View Calendar</a>
 {% endblock %}        
 
 

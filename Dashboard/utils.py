@@ -1,4 +1,3 @@
-from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 from Projects.models import Project
 

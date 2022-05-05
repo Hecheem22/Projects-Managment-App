@@ -1,0 +1,61 @@
+<style>
+    #total-tasks{
+		background-color: #2b1ac4;
+	}
+
+
+	#uncompleted-tasks{
+		background-color: #2b56d6;
+	}
+
+	#completed-tasks{
+		background-color: #2b56d6;
+	}
+
+
+</style>    
+<div class="col">
+    <div class="card border-dark" >
+        <h3 class="card-header"> Tasks Static</h3>
+  
+    </div>
+  </div>   
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-tasks">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Tasks</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_taches}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="uncompleted-tasks">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Uncompleted Tasks</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{uncompleted}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="completed-tasks">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Completed Tasks</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{completed}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>

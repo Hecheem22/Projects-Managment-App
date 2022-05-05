@@ -1,7 +1,6 @@
 from Taches.models import Affectation, Tache
 from django import forms 
 from bootstrap_modal_forms.forms import BSModalModelForm
-from Accounts.models import User
 
 
 

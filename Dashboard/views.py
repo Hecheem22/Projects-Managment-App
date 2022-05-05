@@ -50,20 +50,28 @@ def next_month(d):
     return month
 
 
-def project_dashboard(request):
+def dashboard(request):
     projects = Project.objects.filter(ProjectManager=request.user)
+    taches = Tache.objects.all()
+
+    total_taches = taches.count()
+
     total_projects = projects.count()
     myFilter = ProjectFilter(request.GET , queryset=projects)
     projects = myFilter.qs 
     completed = projects.filter(Status='completed').count()
     uncompleted = projects.filter(Status='uncompleted').count()
 
+    completed = taches.filter(Status='completed').count()
+    uncompleted = taches.filter(Status='uncompleted').count()
+
 
     context = {'projects':projects, 
     'total_projects':total_projects,'completed':completed,
-    'uncompleted':uncompleted , 'myFilter':myFilter }
+    'uncompleted':uncompleted , 'total_taches':total_taches, 'myFilter':myFilter }
 
     return render(request, 'dashboard/dashboard.html', context)
+    
 
 
 
@@ -87,8 +95,10 @@ class ProjectDeleteView(BSModalDeleteView):
 
 
 
-def Taches(request):
-	taches = Tache.objects.all()
 
-	return render(request, 'dashboard/taches_table.html', {'taches':taches})
+
+
+
+
+
 

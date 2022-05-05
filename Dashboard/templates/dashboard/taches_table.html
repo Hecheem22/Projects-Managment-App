@@ -1,8 +1,8 @@
-{% extends 'accounts/main.html' %}
-{% load static %}
-{% block content %}
+
 <title> Liste des taches</title>   
-<table class="table">
+<table id="projects-table" class="table table-sm table-responsive-sm table-hover text-nowrap table-striped table-bordered">
+  <thead class="thead-dark">
+      <tr style="text-align: center;">
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -26,4 +26,3 @@
 
 </table>
 
-{% endblock %}

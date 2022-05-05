@@ -1,6 +1,6 @@
 import django_tables2 as tables
 from .models import Project
-
+from Taches.models import Tache
 
 
 
@@ -14,7 +14,9 @@ class ProjectTable(tables.Table):
         attrs = {'id': 'projects_table',
         'class' : 'table table-sm table-responsive-sm table-hover text-nowrap table-striped table-bordered'}
         template_name = "django_tables2/bootstrap.html"
-        fields = ("id" , "Title", "Description" , "StartDate" , "EndDate" , "ProjectManager"   )
+        fields = ("id" , "Title", "Description" , "StartDate" , "EndDate" , "ProjectManager" , "Status"   )
         sequence = ('id','Title', 'Description' , 'StartDate' , 'EndDate' , 'ProjectManager'    )
+        
+        
         
         

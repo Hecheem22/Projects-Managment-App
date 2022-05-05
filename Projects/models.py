@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 from django.db import models
 from django.urls import reverse
 from Accounts.models import User
@@ -22,7 +22,7 @@ class Project(models.Model):
   Description = models.TextField( max_length=800 )
   StartDate  = models.DateField(  max_length=100, auto_now=False, auto_now_add=False , verbose_name='Start Date') 
   EndDate = models.DateField( max_length=100, auto_now=False, auto_now_add=False, verbose_name='End Date')
-  ProjectManager = models.ForeignKey(User  , null=True, on_delete=models.SET_NULL , verbose_name='Project Manager' ,default='user'  )
+  ProjectManager = models.ForeignKey(User  , null=True, on_delete=models.SET_NULL , verbose_name='Project Manager' )
   Status = models.CharField(max_length=200, null=True, choices=STATUS , default='uncompleted')
 
 
