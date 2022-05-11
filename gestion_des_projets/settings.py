@@ -130,4 +130,6 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'Accounts.User'
 
+LOGIN_REDIRECT_URL = '../'
+
 

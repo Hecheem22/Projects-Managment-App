@@ -1,23 +1,37 @@
 
 <title> Liste des taches</title>   
-<table id="projects-table" class="table table-sm table-responsive-sm table-hover text-nowrap table-striped table-bordered">
-  <thead class="thead-dark">
+<table id="taches-table" class="table table-striped table-bordered">
+  <thead>
       <tr style="text-align: center;">
   <tr>
     <th>Name</th>
-    <th>Description</th>
     <th>StartDate</th>
     <th>EndDate</th>
     <th>Status</th>
+    <th>Actions</th>
+    
   </tr>
 <tbody>
   {% for tache in taches %}
 <tr>
   <td>{{tache.Name}}</td>
-  <td>{{tache.Description}}</td>
   <td>{{tache.StartDate}}</td>
   <td>{{tache.EndDate}}</td>
   <td>{{tache.Status}}</td>
+  <td>
+  <button type="button" class="delete-tache btn btn-sm btn-danger" data-form-url="{% url 'delete_tache' tache.pk %}">
+    <span class="fa fa-trash"></span>
+   
+  </button>
+ 
+<button id="update-tache" type="button" class="update-tache btn btn-sm btn-primary" data-form-url="{% url 'update_tache' tache.pk %}">
+    <span class="fa fa-edit"></span>
+    </button>
+    <button type="button" class="read-tache bs-modal btn btn-sm btn-primary" data-form-url="{% url 'read_tache' tache.pk %}">
+      <span class="fa fa-eye"></span>
+    </button>
+  </td>
+
 </tr>
 
 {% endfor %}

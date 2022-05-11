@@ -28,3 +28,7 @@ class Project(models.Model):
 
   def get_absolute_url(self):
       return reverse('project_details', kwargs={'pk': self.id})
+  def get_delete_projeect_url(self):
+        return reverse('delete_projeect', kwargs={'pk': self.id})
+  def get_edit_project_url(self):
+        return reverse('edit_project', kwargs={'pk': self.id})

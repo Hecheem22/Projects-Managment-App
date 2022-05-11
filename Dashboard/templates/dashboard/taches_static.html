@@ -1,61 +1,86 @@
 <style>
-    #total-tasks{
-		background-color: #2b1ac4;
+	.border-left{
+		border-left:.25rem solid #0a3d62 !important;
 	}
-
-
-	#uncompleted-tasks{
-		background-color: #2b56d6;
+	.district{
+		border-left:.25rem solid #9b59b6 !important;
 	}
-
-	#completed-tasks{
-		background-color: #2b56d6;
+	.time{
+		border-left:.25rem solid #55E6C1 !important;
 	}
+    </style>    
 
 
-</style>    
-<div class="col">
-    <div class="card border-dark" >
-        <h3 class="card-header"> Tasks Static</h3>
-  
-    </div>
-  </div>   
-<div class="row">
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="total-tasks">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Total Tasks</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title">{{total_taches}}</h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
-<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="uncompleted-tasks">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Uncompleted Tasks</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title">{{uncompleted}}</h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
+   
+<div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Tasks </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ total_taches }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-tasks fa-2x text-blue-300" style="color:blue"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="completed-tasks">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Completed Tasks</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title">{{completed}}</h3>
-			  	</div>
+<div class="col-xl-3 col-md-6 mb-4">
+	<div class="card border-left-success shadow h-100 py-2">
+		<div class="card-body">
+			<div class="row no-gutters align-items-center">
+				<div class="col mr-2">
+					<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+						Tasks To Do</div>
+					<div class="h5 mb-0 font-weight-bold text-gray-800">{{ ToDo }}</div>
+				</div>
+				<div class="col-auto">
+					
+					<i class="fas fa-running fa-2x" style="color:green"></i>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<div class="col-xl-3 col-md-6 mb-4">
+	<div class="card border-left-info shadow h-100 py-2">
+		<div class="card-body">
+			<div class="row no-gutters align-items-center">
+				<div class="col mr-2">
+					<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+						Tasks In Progress</div>
+					<div class="h5 mb-0 font-weight-bold text-gray-800">{{ InProgress }}</div>
+				</div>
+				<div class="col-auto">
+					<i class="fas fa-chart-line fa-2x text-info"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="col-xl-3 col-md-6 mb-4">
+	<div class="card border-left-warning shadow h-100 py-2">
+		<div class="card-body">
+			<div class="row no-gutters align-items-center">
+				<div class="col mr-2">
+					<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+						Completed Tasks </div>
+					<div class="h5 mb-0 font-weight-bold text-gray-800">{{ Done }}</div>
+				</div>
+				<div class="col-auto">
+					<i class="fas fa-thumbs-up fa-2x text-warning" ></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

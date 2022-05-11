@@ -2,7 +2,47 @@
 {% load static %}
 {% block content %}
 {% load render_table from django_tables2 %}
-
+<style>
+  #users-table th{
+    color:DodgerBlue;
+  }
+  
+  .button {
+    display: flex;
+    height: 50px;
+    padding: 0;
+    background: #3a82ba;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background:#3b9dc4;
+  }
+  
+  
+  
+  .button__text,
+  .button__icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    color: #fff;
+    height: 100%;
+  }
+  
+  .button__icon {
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.08);
+  }
+  
+</style>
 <title> Liste des utilisateurs</title>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
     <div class="modal-dialog" role="document">
@@ -11,13 +51,20 @@
   </div>
   <div class="col">
     <div class="card border-dark" >
-        <h3 class="card-header"> Users Management</h3>
+        <h3 class="card-header"> Users List</h3>
 
     </div>
 </div>
-<button id="create-user" class="btn btn-primary" type="button" name="button">Add New User</button>  
+<button id="create-user" type="button" class="button">
+  <span class="button__text">Add New User</span>
+  <span class="button__icon">
+    <ion-icon name="add-outline"></ion-icon>
+  </span>
+</button>
+<br>
 
 
-{% render_table table %}
+
+  {% render_table table %}
 
 {% endblock %}

@@ -1,60 +1,60 @@
 <style>
-    #total-projects{
-		background-color: #2b1ac4;
-	}
-
-
-	#uncompleted-projects{
-		background-color: #2b56d6;
-	}
-
-	#completed-projects{
-		background-color: #2b56d6;
-	}
-
+    
 
 </style>    
-<div class="col">
-    <div class="card border-dark" >
-        <h3 class="card-header"> Projects Static</h3>
-  
-    </div>
-  </div>   
 <div class="row">
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="total-projects">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Total Projects</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title">{{total_projects}}</h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
-<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="uncompleted-projects">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Uncompleted Projects</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title">{{uncompleted}}</h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
 
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="completed-projects">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Completed Projects</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title">{{completed}}</h3>
-			  	</div>
+<div class="col-xl-3 col-md-6 mb-4">
+	<div class="card border-left-primary shadow h-100 py-2">
+		<div class="card-body">
+			<div class="row no-gutters align-items-center">
+				<div class="col mr-2">
+					<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+						Total Projects </div>
+					<div class="h5 mb-0 font-weight-bold text-gray-800"> {{ total_projects }}</div>
+				</div>
+				<div class="col-auto">
+					<i class="fas fa-briefcase fa-2x text-blue-300" style="color:blue"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="col-xl-3 col-md-6 mb-4" >
+	<div class="card border-left-success shadow h-100 py-2" style="left:100px;">
+		<div class="card-body">
+			<div class="row no-gutters align-items-center">
+				<div class="col mr-2">
+					<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+						Uncompleted Projects</div>
+					<div class="h5 mb-0 font-weight-bold text-gray-800">{{ uncompleted }}</div>
+				</div>
+				<div class="col-auto">
+					
+					<i class="fas fa-running fa-2x" style="color:green"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-xl-3 col-md-6 mb-4" style="left:200px;">
+	<div class="card border-left-info shadow h-100 py-2">
+		<div class="card-body">
+			<div class="row no-gutters align-items-center">
+				<div class="col mr-2">
+					<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+					Completed Projects</div>
+					<div class="h5 mb-0 font-weight-bold text-gray-800">{{ completed }}</div>
+				</div>
+				<div class="col-auto">
+					<i class="fas fa-thumbs-up fa-2x text-info"></i>
+				</div>
 			</div>
 		</div>
 	</div>

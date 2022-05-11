@@ -1,13 +1,15 @@
-from multiprocessing import context
-from django.shortcuts import  render
-from Accounts.models import User
-from Taches.models import Affectation, Tache
-from Taches.forms import AddTacheForm, UserTachesForm
-from django.urls import reverse_lazy
-from bootstrap_modal_forms.generic import BSModalCreateView 
-from django.views.generic.base import View
-from Taches.tables import TachesTable
 
+from django.shortcuts import  render
+from Projects.models import Project
+from Taches.models import  Tache
+from Taches.forms import AddTacheForm
+from django.urls import reverse_lazy
+from bootstrap_modal_forms.generic import BSModalCreateView , BSModalReadView
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.decorators import login_required, permission_required
+
+@login_required
+@permission_required('taches.view_tache', raise_exception=True)
 def taches(request):
 	taches = Tache.objects.all()
 
@@ -15,28 +17,22 @@ def taches(request):
 
 
 
-class UsersTachesTable(View):
- def get(self,request):
-        queryset = Affectation.objects.all()
-        Taches_Table = TachesTable(queryset)
-       
-        context = {'view_taches':Taches_Table }
-        return render(request, 'taches/users_taches.html', context)
-        
 
 
-class UserTacheCreateView(BSModalCreateView):
-    template_name = 'taches/add_user_tache.html'
-    form_class = UserTachesForm
-    success_message = 'Success: new task was created.'
-    success_url = reverse_lazy('UsersTaches')
+
+
    
 
-class TacheCreateView(BSModalCreateView):
+class TacheCreateView(PermissionRequiredMixin, BSModalCreateView):
+    permission_required = 'taches.add_tache'
     template_name = 'taches/add_tache.html'
     form_class = AddTacheForm
-    success_message = 'Success: tache was created.'
-    success_url = reverse_lazy('UsersTaches')
+    
+    def form_valid(self , form):
+        form.instance.project_id=Project
+        return super(TacheCreateView , self ).form_valid(form)
+    success_message = 'Success: task was created.'
+    success_url = reverse_lazy('Projects:project_details')
     
 
 

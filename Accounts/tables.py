@@ -9,9 +9,9 @@ class UserTable(tables.Table):
     
  class Meta:
         model = User
-        attrs = {'id': 'users_table',
+        attrs = {'id': 'users-table',
         'class' : 'table table-sm table-responsive-sm table-hover text-nowrap table-striped table-bordered'}
-        template_name = "django_tables2/bootstrap.html"
+
         fields = ( "first_name", "last_name" , "email" , "Type" )
 
 

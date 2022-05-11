@@ -5,7 +5,7 @@ from django.urls import reverse
 class User(AbstractUser):
     User_type=(
 ('1', 'Chef Du Projet'),
-('2', 'Utilisateur'),
+('2', 'Employee'),
 ('3', 'Client'),
 
  )  

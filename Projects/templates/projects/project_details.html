@@ -2,6 +2,46 @@
 {% load static %}
 {% block content %}
 <title> Liste des taches</title>
+<style>
+  
+ 
+  .button {
+   display: flex;
+   height: 50px;
+   padding: 0;
+   background: #3a82ba;
+   border: none;
+   outline: none;
+   border-radius: 5px;
+   overflow: hidden;
+   font-family: "Quicksand", sans-serif;
+   font-size: 20px;
+   font-weight: 500;
+   cursor: pointer;
+ }
+ 
+ .button:hover {
+   background:#3b9dc4;
+ }
+ 
+ 
+ 
+ .button__text,
+ .button__icon {
+   display: inline-flex;
+   align-items: center;
+   padding: 0 24px;
+   color: #fff;
+   height: 100%;
+ }
+ 
+ .button__icon {
+   font-size: 1.5em;
+   background: rgba(0, 0, 0, 0.08);
+ }
+ 
+     
+ </style>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content"></div>
@@ -13,24 +53,53 @@
 
     </div>
 </div>      
-<button id="create-tache" class="btn btn-primary" type="button" name="button"> Create New Task</button> 
+<button id="create-tache" type="button" class="button">
+  <span class="button__text">Create New Task</span>
+  <span class="button__icon">
+    <ion-icon name="add-outline"></ion-icon>
+  </span>
+</button>
+<br>
  
 <table class="table table-sm table-responsive-sm table-hover text-nowrap table-striped table-bordered">
   <tr>
     <th>Name</th>
-    <th>Description</th>
     <th>StartDate</th>
     <th>EndDate</th>
     <th>Status</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Remove</th>
+    
   </tr>
 <tbody>
   {% for tache in taches %}
 <tr>
   <td>{{tache.Name}}</td>
-  <td>{{tache.Description}}</td>
   <td>{{tache.StartDate}}</td>
   <td>{{tache.EndDate}}</td>
   <td>{{tache.Status}}</td>
+  <td>
+    <button id="tache-detail" type="button" class="tache-detail btn btn-sm btn-primary">
+      <span class="fa fa-eye"></span>
+      </button>
+  </td>   
+   
+  <td>
+<button id="update-tache" type="button" class="update-tache btn btn-sm btn-primary" data-form-url="{% url 'update_tache' tache.pk %}">
+      <span class="fa fa-edit"></span>
+      </button>
+    </td>
+    <td>
+      <button type="button" class="delete-tache btn btn-sm btn-danger" data-form-url="{% url 'delete_tache' tache.pk %}">
+        <span class="fa fa-trash"></span>
+       
+      </button>
+    </td>
+ <td>
+ </td>   
+  
+
 </tr>
 
 {% endfor %}
@@ -38,6 +107,8 @@
 </tbody>
 
 </table>
-<a href="/users-taches" class="btn btn-primary btn active" role="button" aria-pressed="true"> Tasks Assignment </a>
+
 
 {% endblock %}
+
+class="btn btn-info"><i class="fa fa-edit"></i>
